@@ -32,14 +32,15 @@
                         <td>{{ $report->id }}</td>
                         <td>{{ $report->nama }}</td>
                         <td>{{ $report->job }}</td>
-                        <td>{{ $report->rincian }}</td>
-                        <td>{{ $report->trouble }}</td>
+                        <td>{{ Str::limit($report->rincian, 50) }}</td>
+                        <td>{{ Str::limit($report->trouble, 50) }}</td>
                         <td>{{ $report->persentase }}</td>
                         <td>{{ $report->tanggal }}</td>
                         <td>
-                            <a href="{{ route('reports.show', $report->id) }}" class="btn btn-outline-primary"><i
-                                    class="bi bi-ticket-detailed me-1"></i>Detail</a>
-                        </td>
+                            <a href="{{ route('reports.show', $report->id) }}" class="btn btn-outline-primary d-flex justify-content-center align-items-center px-2 py-1">
+                                <i class="bi bi-ticket-detailed"></i>
+                            </a>
+                        </td>                        
                     </tr>
                 @endforeach
             </tbody>
